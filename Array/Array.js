@@ -1,5 +1,5 @@
 class RotateArray {
-  //Time Complexity o(n)
+  //Time Complexity O(N)
   reverse(arr) {
     let tempArr = [];
     for (let i = arr.length - 1; i >= 0; i--) {
@@ -8,7 +8,7 @@ class RotateArray {
     return tempArr;
   }
 
-  //Time Complexity o(n)
+  //Time Complexity O(N)
   findDuplicate(arr) {
     let dic = {};
     let repeatedArr = [];
@@ -26,6 +26,18 @@ class RotateArray {
     }
 
     return repeatedArr;
+  }
+
+  findMax(arr) {
+    let max = arr[0];
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > max) {
+        max = num;
+      }
+    }
+
+    return max;
   }
 }
 
