@@ -1,5 +1,4 @@
 class RotateArray {
-  //Time Complexity O(N)
   reverse(arr) {
     let tempArr = [];
     for (let i = arr.length - 1; i >= 0; i--) {
@@ -8,7 +7,6 @@ class RotateArray {
     return tempArr;
   }
 
-  //Time Complexity O(N)
   findDuplicate(arr) {
     let dic = {};
     let repeatedArr = [];
@@ -29,15 +27,35 @@ class RotateArray {
   }
 
   findMax(arr) {
-    let max = arr[0];
+    let max;
 
     for (let i = 0; i < arr.length; i++) {
+      max = arr[i];
       if (arr[i] > max) {
-        max = num;
+        max = arr[i];
       }
     }
 
     return max;
+  }
+
+  // Find the minimum element in array and place it at beginning
+  selectionSort(arr) {
+    let minIndex;
+    let temp;
+
+    for (let i = 0; i < arr.length; i++) {
+      minIndex = arr[i];
+      if (arr[i] > arr[minIndex]) {
+        minIndex = i;
+
+        temp = arr[minIndex];
+        arr[minIndex] = arr[i];
+        arr[i] = temp;
+      }
+    }
+
+    return arr;
   }
 }
 
