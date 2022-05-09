@@ -42,19 +42,19 @@ class RotateArray {
   // Find the minimum element in array and place it at beginning
   selectionSort(arr) {
     let minIndex;
-    let temp;
+    let minTemp;
 
     for (let i = 0; i < arr.length; i++) {
-      minIndex = arr[i];
-      if (arr[i] > arr[minIndex]) {
+      for (let j = i + 1; j < arr.length; j++) {
         minIndex = i;
-
-        temp = arr[minIndex];
-        arr[minIndex] = arr[i];
-        arr[i] = temp;
+        if (arr[j] < arr[minIndex]) {
+          minIndex = j;
+          minTemp = arr[minIndex];
+          arr[minIndex] = arr[i];
+          arr[i] = minTemp;
+        }
       }
     }
-
     return arr;
   }
 }
