@@ -46,3 +46,10 @@ class Stack2 {
     return lastItem;
   }
 }
+
+// const stack = new Stack2();
+// stack.push(7);
+// stack.push(2);
+// stack.push(6);
+// stack.push(4);
+// stack.pop(); // => 4
