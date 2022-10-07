@@ -34,6 +34,7 @@ class Queue2 {
 
   //enqueues a new value at the end of queue
   enqueue(item) {
+    //add item to tail of queue then tailIndex increase
     this.items[this.tailIndex] = item;
     this.tailIndex++;
   }
@@ -41,7 +42,9 @@ class Queue2 {
   //dqueues value form a beginning of the queue and return it
   dequeue() {
     const item = this.items[this.headIndex];
+    ///remove head by headIndex
     delete this.items[this.headIndex];
+    //then headIndex shift its index with item after so we use +++
     this.headIndex++;
     return item;
   }
