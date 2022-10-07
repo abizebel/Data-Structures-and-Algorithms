@@ -1,8 +1,10 @@
-//Singly linked list => it can be traversed in only one direction from head to the last node (tail)
-//head = first item
-//tail = last item
-//comparing object with the saem refrence is possible
-//var x = {val:1} var y ={child:x}   y.child ===x
+/*
+    Singly linked list => it can be traversed in only one direction from head to the last node (tail)
+    head = first item
+    tail = last item
+    comparing object with the saem refrence is possible
+    var x = {val:1} var y ={child:x}   y.child ===x
+*/
 
 class LinkedList {
   constructor(value) {
