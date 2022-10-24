@@ -4,6 +4,7 @@ class HashTable {
         this.buckets = Array(16)
             .fill(null)
             //fot solving collisions we store multiple values per hash so assume any item as another array
+            //we call this chaining
             .map(() => []);
     }
 
