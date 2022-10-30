@@ -24,7 +24,7 @@ class Node {
             }
         }
 
-        //then check children of any child of that node
+        //if not found dig deeper
         for (const child of this.children) {
             const nestedChildNode = child.find(value);
             if (nestedChildNode) {
