@@ -50,15 +50,12 @@ class Node {
 
         if (identifiedNode.left && identifiedNode.right) {
             const nextBiggerNode = identifiedNode.right.findNext();
-            if (nextBiggerNode.value === identifiedNode.right.value) {
-                // this.remove(nextBiggerNode.value);
-                identifiedNode.right = nextBiggerNode.right;
+            if (nextBiggerNode.value !== identifiedNode.right.value) {
+                this.remove(nextBiggerNode.value);
                 identifiedNode.value = nextBiggerNode.value;
-                identifiedNode.left.parent = nextBiggerNode;
             } else {
                 identifiedNode.value = identifiedNode.right.value;
                 identifiedNode.right = identifiedNode.right.right;
-                identifiedNode.left.parent = identifiedNode;
             }
         } else {
             const childNode = identifiedNode.left || identifiedNode.right;
@@ -66,6 +63,13 @@ class Node {
             identifiedNode.left = childNode.left;
             identifiedNode.right = childNode.right;
             identifiedNode.value = childNode.value;
+        }
+
+        if (identifiedNode.left) {
+            identifiedNode.left.parent = identifiedNode;
+        }
+        if (identifiedNode.right) {
+            identifiedNode.right.parent = identifiedNode;
         }
     }
 
@@ -129,9 +133,10 @@ tree.add(6);
 tree.add(20);
 tree.add(25);
 tree.add(23);
+tree.add(21);
+tree.add(15);
 tree.add(28);
 tree.add(27);
-tree.add(29);
 tree.add(31);
 tree.add(39);
 tree.remove(39);
@@ -139,6 +144,6 @@ tree.remove(20);
 tree.remove(25);
 
 console.log(tree);
-console.log(tree.find(5))
-console.log(tree.find(7))
-console.log(tree.find(39))
+console.log(tree.find(5));
+console.log(tree.find(7));
+console.log(tree.find(39));
