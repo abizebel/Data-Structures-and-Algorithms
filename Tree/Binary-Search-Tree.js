@@ -3,6 +3,7 @@ class Node {
         this.value = value;
         this.left = null;
         this.right = null;
+        this.parent = null;
     }
 
     add(value) {
@@ -17,6 +18,7 @@ class Node {
                 return;
             }
             const newNode = new Node(value);
+            newNode.parent = this;
             this.right = newNode;
             return;
         }
@@ -27,22 +29,9 @@ class Node {
                 return;
             }
             const newNode = new Node(value);
+            newNode.parent = this;
             this.left = newNode;
             return;
-        }
-    }
-
-    find(value) {
-        if (this.value === value) {
-            return this;
-        }
-
-        if (this.value < value && this.right) {
-            return this.right.find(value);
-        }
-
-        if (this.value > value && this.left) {
-            return this.left.find(value);
         }
     }
 
@@ -89,6 +78,28 @@ class Node {
             this.right = null;
             return;
         }
+    }
+
+    find(value) {
+        if (this.value === value) {
+            return this;
+        }
+
+        if (this.value < value && this.right) {
+            return this.right.find(value);
+        }
+
+        if (this.value > value && this.left) {
+            return this.left.find(value);
+        }
+    }
+
+    findNext() {
+        if (!this.left) {
+            return this;
+        }
+
+        return this.left.findNext();
     }
 }
 
