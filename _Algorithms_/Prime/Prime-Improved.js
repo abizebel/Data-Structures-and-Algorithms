@@ -1,4 +1,8 @@
 function isPrime(number) {
+
+    //for every non prime number At least one of those factors will be smaller or equal than the square root
+    // because if both factors would be bigger than the square root of the number you're looking at the multiplication of
+    //those factors would yield a bigger number than the number you're looking at
     for (let i = 2; i < Math.sqrt(number); i++) { // 1
         console.log('Running');
         if (number % i === 0) { // n
